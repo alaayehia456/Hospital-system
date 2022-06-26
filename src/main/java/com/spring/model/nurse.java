@@ -1,5 +1,6 @@
 package com.spring.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -28,6 +29,7 @@ public class nurse extends Human{
             joinColumns = @JoinColumn(name = "nurse_id"),
             inverseJoinColumns = @JoinColumn(name = "room_id")
     )
+    @JsonIgnore
     private List<room> Room=new ArrayList<>();
 
 }

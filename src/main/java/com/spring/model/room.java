@@ -1,5 +1,6 @@
 package com.spring.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,15 +24,18 @@ public class room {
 
 
    @OneToOne(mappedBy = "Room")
+   @JsonIgnore
     private patient Patient;
 
 
     @ManyToMany(mappedBy = "Room")
+    @JsonIgnore
    private List<nurse> Nurse=new ArrayList<>();
 
 
     @ManyToOne
     @JoinColumn(name = "built_id")
+    @JsonIgnore
    private built Built;
 
 
@@ -40,6 +44,7 @@ public class room {
             joinColumns=@JoinColumn(name = "room_id"),
             inverseJoinColumns = @JoinColumn(name = "cleaner_id")
     )
+    @JsonIgnore
     private List<cleaner> cleaners=new ArrayList<>();
 
 }

@@ -1,5 +1,6 @@
 package com.spring.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,6 +24,7 @@ public class cleaner extends Human{
 
 
     @ManyToMany(mappedBy = "cleaners")
+    @JsonIgnore
     private List<room> Room=new ArrayList<>();
 
 }

@@ -1,13 +1,12 @@
 package com.spring.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Type;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,17 +16,21 @@ import java.util.List;
 @Entity
 public class doctor extends Human{
 
-    @Column
-private doctorMajor major;
+
+    @Enumerated(EnumType.ORDINAL)
+    @JsonIgnore
+    private doctorMajor major;
 
     @Column
-private int salary;
+    private int salary;
 
-    @Column
+
+    @Enumerated(EnumType.ORDINAL)
 private academicAndCareerProgression academicAndCareerProgression;
 
 
     @OneToMany(mappedBy = "Doctor")
+    @JsonIgnore
     private List<patient> patients=new ArrayList<>();
 
 

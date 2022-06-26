@@ -3,11 +3,13 @@ package com.spring.model;
 
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Data
@@ -20,19 +22,21 @@ public class patient extends Human{
     private String report;
 
     @Column
-    private Date checkIn;
+    private LocalDateTime checkIn;
 
     @Column
-    private Date checkOut;
+    private LocalDateTime checkOut;
 
 
 
     @OneToOne
     @JoinColumn(name = "room_id")
+    //@JsonIgnore
     private room  Room;
 
     @ManyToOne
     @JoinColumn(name = "ID_DOCTOR",nullable = false)
+  //  @JsonIgnore
     private doctor  Doctor;
 
 

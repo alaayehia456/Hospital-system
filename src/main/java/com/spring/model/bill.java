@@ -6,18 +6,20 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-public class manger extends Human{
-    @Column
-    private int salary;
+public class bill {
 
-    @Enumerated(EnumType.ORDINAL)
-    private mangerMajor major;
+
+    private Long id_customer;
+
+
+    private  int priceOfDay;
+
+
+    private float total_price;
+
 
 }
