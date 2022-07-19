@@ -3,7 +3,9 @@ package com.spring.service;
 import com.spring.model.patient;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.spring.Dao.*;
+import org.springframework.stereotype.Service;
 
+@Service
 public class doctorSerice {
 
     @Autowired

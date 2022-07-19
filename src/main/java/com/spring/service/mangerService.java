@@ -112,7 +112,7 @@ public class mangerService {
 
     public void editeDoctor(doctor d){
 
-        doctor Doctor=doctorrepo.finddoctorById(d.getId());
+        doctor Doctor=doctorrepo.getById(d.getId());
 
         Doctor.setName(d.getName());
         Doctor.setMajor(d.getMajor());
