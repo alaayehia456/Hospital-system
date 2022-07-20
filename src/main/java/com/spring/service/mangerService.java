@@ -4,20 +4,23 @@ import com.spring.Dao.patientRepo;
 import com.spring.model.bill;
 import com.spring.model.doctor;
 import com.spring.model.patient;
-import javafx.util.converter.LocalDateTimeStringConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import com.spring.Dao.*;
+import com.spring.model.*;
 @Service
 public class mangerService {
 
     @Autowired
     patientRepo patientrepo;
+
+
+    @Autowired
+    private builtRepo repo;
 
     @Autowired
     private doctorRepo doctorrepo;
@@ -123,6 +126,35 @@ public class mangerService {
         Doctor.setPhoneNumber(d.getPhoneNumber());
         doctorrepo.save(Doctor);
 
+    }
+
+
+    public List<doctor> getAllDoctor(){
+        return doctorrepo.findAll();
+    }
+
+    public List<built> getAllBuilding(){
+        return repo.findAll();
+    }
+
+
+    public void addBuilding(built b){
+        built built1=new built();
+        built1.setRooms(b.getRooms());
+        repo.save(b);
+
+    }
+
+    public void updateBuilding(built b){
+        built built1=new built();
+        built1.setRooms(b.getRooms());
+        repo.save(built1);
+    }
+
+
+    public Optional<built> getBuiltById(Long id){
+
+      return   repo.findById(id);
     }
 
 

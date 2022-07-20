@@ -59,23 +59,8 @@ public class mangerController {
     }
 
 
-    @PostMapping("/adddoctor")
-    @Operation(description = "add doctor",summary = "add doctor",tags = "manger layer")
-    public void addDoctor(@RequestBody doctor d){
-        service.addDoctor(d);
-    }
-
-    @DeleteMapping("/deletedoctor")
-    @Operation(description = "delete doctor",summary = "delete doctor",tags = "manger layer")
-    public void deleteDoctor(@RequestParam Long id){
-        service.deleteDoctor(id);
-    }
 
 
-    @PutMapping("editedoctor")
-    @Operation(description = "edite information of doctor",summary = "edite  information of doctor  ",tags = "manger layer")
-    public void edtieDoctor(@RequestBody doctor d){
-        service.editeDoctor(d);
-    }
+
 
 }
